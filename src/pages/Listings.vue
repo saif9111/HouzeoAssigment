@@ -6,14 +6,15 @@
       <SearchBar />
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-[40%_60%] gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-[50%_50%] gap-4">
       <!-- Map (Desktop Only) -->
-      <div class="hidden md:block h-[calc(100vh-180px)] sticky top-4">
+      <div class="hidden md:block sticky top-4">
+        <!-- h-[calc(100vh-180px)] -->
         <MapSection />
       </div>
 
       <!-- Listings -->
-      <div class="listingCon">
+      <div class="listingCon px-4">
         <h2 class="propertyCardLocation">
           Austin, TX real estate & homes for sale
         </h2>
@@ -52,7 +53,7 @@
             </div>
           </div>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <PropertyCard v-for="home in homes" :key="home.id" :property="home" />
         </div>
       </div>
@@ -85,11 +86,14 @@ import SearchBar from "../components/SearchBar.vue";
 import PropertyCard from "../components/PropertyCard.vue";
 import MapSection from "../components/MapSection.vue";
 import houseImg from "../assets/house.png";
+import houseImg1 from "../assets/house1.png";
+import houseImg2 from "../assets/house2.png";
+import houseImg3 from "../assets/house3.png";
 
 const homes = [
   {
     id: 1,
-    image: houseImg,
+    images: [houseImg, houseImg1, houseImg2, houseImg3],
     days: 6,
     type: "House For Sale",
     price: "3,349,000",
@@ -102,7 +106,7 @@ const homes = [
   },
   {
     id: 2,
-    image: houseImg,
+    images: [houseImg1 , houseImg2, houseImg3 , houseImg],
     days: 12,
     type: "Condo For Sale",
     price: "3,349,000",
@@ -115,7 +119,7 @@ const homes = [
   },
   {
     id: 3,
-    image: houseImg,
+    images: [ houseImg3 , houseImg1 , houseImg2, houseImg],
     days: 12,
     type: "Condo For Sale",
     price: "3,349,000",
@@ -128,7 +132,7 @@ const homes = [
   },
   {
     id: 4,
-    image: houseImg,
+    images: [houseImg2, houseImg1 , houseImg3, houseImg,],
     days: 12,
     type: "Condo For Sale",
     price: "3,349,000",
@@ -169,6 +173,7 @@ onUnmounted(() => {
 .dropdown-content {
   display: none;
   position: absolute;
+  right: 0;
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);

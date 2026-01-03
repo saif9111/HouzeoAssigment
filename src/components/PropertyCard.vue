@@ -1,11 +1,49 @@
 <template>
   <div class="bg-white rounded-xl shadow overflow-hidden">
     <div class="relative">
-      <img :src="property.image" class="w-full h-48 object-cover" />
-      <span class="absolute top-2 left-2 bg-white text-xs px-2 py-1 rounded daysIndicator">
+      <!-- <img
+        :src="property.images[currentIndex]"
+        class="w-full h-48 object-cover transition-all duration-300"
+      /> -->
+      <Swiper class="h-48" @swiper="onSwiper" @slideChange="onSlideChange">
+        <SwiperSlide v-for="(img, i) in property.images" :key="i">
+          <img :src="img" class="w-full h-48 object-fill" />
+        </SwiperSlide>
+      </Swiper>
+
+      <!-- Left Arrow -->
+      <button
+        v-if="property.images.length > 1"
+        @click="prev"
+        class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-1 z-10"
+      >
+        ‹
+      </button>
+      <!-- Right Arrow -->
+      <button
+        v-if="property.images.length > 1"
+        @click="next"
+        class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-1 z-10"
+      >
+        ›
+      </button>
+      <!-- Dots -->
+      <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1 z-10">
+        <span
+          v-for="(img, index) in property.images"
+          :key="index"
+          class="w-2 h-2 rounded-full cursor-pointer"
+          :class="index === currentIndex ? 'bg-white' : 'bg-white/50'"
+          @click="goToSlide(index)"
+        ></span>
+      </div>
+
+      <span
+        class="absolute top-2 left-2 bg-white text-xs px-2 py-1 rounded daysIndicator zIndex"
+      >
         {{ property.days }} days on Houzeo
       </span>
-      <span class="absolute top-2 right-2 text-white whishHeart">♡</span>
+      <span class="absolute top-2 right-2 text-white whishHeart zIndex">♡</span>
     </div>
 
     <div class="p-4">
@@ -30,19 +68,18 @@
         </div>
       </div>
       <div class="propertyAmtCon">
-        <div class="propertyAmt">
-          ${{ property.price }}
-        </div>
+        <div class="propertyAmt">${{ property.price }}</div>
 
         <div class="propertyDiscrip">
-          <span class="blueAmt">{{ property.beds }}</span> Beds  <span class="blueAmt">{{ property.baths }}</span> Baths 
+          <span class="blueAmt">{{ property.beds }}</span> Beds
+          <span class="blueAmt">{{ property.baths }}</span> Baths
           <span class="blueAmt">{{ property.sqft }}</span> sqft
         </div>
       </div>
 
       <div class="text-sm mt-1 font-medium">
         {{ property.address }}
-        <span class="dimAdd">{{property.addressDim}}</span>
+        <span class="dimAdd">{{ property.addressDim }}</span>
       </div>
 
       <div class="text-xs text-gray-500 mt-1">
@@ -53,7 +90,34 @@
 </template>
 
 <script setup>
-defineProps({
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
+import { ref } from "vue";
+
+const props = defineProps({
   property: Object,
 });
+
+const swiperRef = ref(null);
+const currentIndex = ref(0);
+
+const onSwiper = (swiper) => {
+  swiperRef.value = swiper;
+};
+
+const onSlideChange = (swiper) => {
+  currentIndex.value = swiper.activeIndex;
+};
+
+const next = () => {
+  swiperRef.value?.slideNext();
+};
+
+const prev = () => {
+  swiperRef.value?.slidePrev();
+};
+
+const goToSlide = (index) => {
+  swiperRef.value?.slideTo(index);
+};
 </script>

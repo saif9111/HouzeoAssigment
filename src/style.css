@@ -4,6 +4,17 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.navLogo {
+  height: 34px;
+  width: 124px;
+}
+
+.navLink {
+  flex-grow: 1;
+  justify-content: end;
+  padding-right: 36px;
+}
+
 .propertyCardDetails {
   display: flex;
   justify-content: space-between;
@@ -34,6 +45,14 @@ span.lightTxt {
   align-items: center;
   gap: 5px;
   color: #0b5aa5;
+  font-weight: 500;
+}
+
+.dropbtnBlack {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #000;
   font-weight: 500;
 }
 
@@ -191,8 +210,13 @@ span.lightTxt {
   outline: 1px solid slategrey;
 } */
 
+.zIndex {
+  z-index: 999;
+}
+
 .mobDiplayNoneHead {
   display: flex;
+  gap: 36px;
 }
 
 .profileBtn {
@@ -215,7 +239,16 @@ span.lightTxt {
 }
 
 button.mapBtn {
-    display: none;
+  display: none;
+}
+
+@media (max-width: 1257px) {
+  .navLink {
+    flex-grow: 1;
+    justify-content: end;
+    padding-right: 36px;
+    gap: 10px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -267,5 +300,25 @@ button.mapBtn {
     bottom: 20px;
     left: 50%;
     transform: translate(-50%, 0px);
+    z-index: 9999;
+  }
+  .navLink {
+    /* flex-grow: 1; */
+    padding-right: 36px;
+    gap: 10px;
+    /* height: 100vh; */
+    z-index: 99999;
+    justify-content: flex-start;
+    align-items: baseline;
+  }
+  .dropdown-content {
+    display: none;
+    position: relative;
+    left: 0;
+    background-color: #efefef;
+    min-width: 160px;
+    box-shadow: none;
+    z-index: 1;
+    width: 93vw;
   }
 }

@@ -10,6 +10,32 @@
       attribution="&copy; OpenStreetMap contributors"
     />
     <LMarker :lat-lng="[30.2672, -97.7431]" />
+    <LMarker :lat-lng="[30.2696, -97.7431]" />
+
+    <LMarker :lat-lng="[30.2686, -97.7431]" />
+    <LMarker :lat-lng="[30.2676, -97.7431]" />
+    <LMarker :lat-lng="[30.2666, -97.7431]" />
+    <LMarker :lat-lng="[30.2626, -97.7431]" />
+    <LMarker :lat-lng="[30.2676, -97.7438]" />
+    <LMarker :lat-lng="[30.2696, -97.7434]" />
+
+    <LMarker :lat-lng="[30.2378, -97.7635]" />
+    <LMarker :lat-lng="[30.2278, -97.7435]" />
+    <LMarker :lat-lng="[30.2178, -97.7435]" />
+    <LMarker :lat-lng="[30.2978, -97.7835]" />
+    <LMarker :lat-lng="[30.4178, -97.7435]" />
+    <LMarker :lat-lng="[30.3178, -97.7435]" />
+    <LMarker :lat-lng="[30.3678, -97.7435]" />
+    <LMarker :lat-lng="[30.3878, -97.7435]" />
+    <LMarker :lat-lng="[30.3978, -97.7935]" />
+    <LMarker :lat-lng="[30.3078, -97.6435]" />
+    <LMarker :lat-lng="[30.3578, -97.5435]" />
+    <LMarker :lat-lng="[30.3178, -97.1435]" />
+    <LMarker :lat-lng="[30.3778, -97.9435]" />
+    <LMarker :lat-lng="[30.3478, -97.2735]" />
+    <LMarker :lat-lng="[30.3578, -97.1885]" />
+    <LMarker :lat-lng="[30.3018, -97.7480]" />
+    <LMarker :lat-lng="[30.3908, -97.7499]" />
   </LMap>
 </template>
 
